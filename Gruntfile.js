@@ -22,7 +22,12 @@ module.exports = function(grunt) {
         testem: {
             environment: {
                 src: [
+                    'vendor/js/lodash.js',
+                    'vendor/js/jquery.js',
+                    'vendor/js/handlebars.runtime.js',
+                    'vendor/js/backbone.js',
                     'vendor/**/*.js',
+                    "<%= tmp %>/handlebar_templates.js",
                     'src/**/*.coffee',
                     'spec/helpers/**/*.js',
                     'spec/**/*_spec.coffee'
@@ -39,7 +44,7 @@ module.exports = function(grunt) {
                 separator: ';'
             },
             dist: {
-                src: ['<%= tmp %><%= projectName %>.js'],
+                src: ['<%= tmp %>/handlebar_templates.js', '<%= tmp %><%= projectName %>.js'],
                 dest: 'dist/<%= projectName %>.js'
             }
         },
@@ -53,6 +58,16 @@ module.exports = function(grunt) {
                     '<%= tmp %><%= projectName %>.js': ["src/*.coffee"]
                 }
             }
+        },
+        handlebars: {
+          compile: {
+              options: {
+                  namespace: "JST"
+              },
+              files: {
+                  "<%= tmp %>/handlebar_templates.js": ["templates/**/*.hbs", "templates/**/*.handlebars", "templates/**/*.hb"]
+              }
+          }
         },
         uglify: {
             options: {
@@ -68,6 +83,7 @@ module.exports = function(grunt) {
     });
 
     grunt.registerTask('coffee:compiledJoined','Compiles the Coffeescript source files', ['coffee:compileJoined']);
-    grunt.registerTask('build', "Build Project", ['coffee:compileJoined', 'concat', 'uglify'])
+    grunt.registerTask('build', "Build Project", ['coffee:compileJoined', 'handlebars','concat', 'uglify'])
+    grunt.registerTask('spec', 'Run the specs', ['handlebars', 'testem:run:environment'])
 
 }
