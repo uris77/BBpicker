@@ -1,15 +1,15 @@
 {
-  "name": "tdd-grunt-archetype",
+  "name": "bbpicker",
   "version": "0.0.1",
-  "description": "A simple archetype that uses grunt to setup testem & jasmine to test drive a simple javascript utility.",
-  "homepage": "https://github.com/uris77/tdd-grunt-archetype.git",
+  "description": "A Marionettejs based component for uploading an image using filepicker.",
+  "homepage": "https://github.com/uris77/bbpicker.git",
   "author": {
     "name": "Roberto Guerra",
     "company": "Spantree LLC"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/urits77/tdd-grunt-archetype.git"
+    "url": "git://github.com/urits77/bbpicker.git"
   },
   "licenses": [
     {
