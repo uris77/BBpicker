@@ -1,6 +1,7 @@
-# TDD - Grunt - BB - Archetype.
-This is a skeleton that can be used to quickly start a Marionettejs/Backbonejs utility/component. It was created out of
-a need to build re-usable components across projects using TDD. This is a customized version of https://github.com/uris77/tdd-grunt-archetype.
+# BBPicker
+A small Marionettejs component for uploading images with filepicker.
+
+# Under Development
 
 ## Requirements
 * Nodejs
