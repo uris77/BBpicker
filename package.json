@@ -1,15 +1,15 @@
 {
-  "name": "bbpicker",
+  "name": "BBpicker",
   "version": "0.0.1",
-  "description": "A Marionettejs based component for uploading an image using filepicker.",
-  "homepage": "https://github.com/uris77/bbpicker.git",
+  "description": "A Marionettejs component for uploading an image using filepicker.",
+  "homepage": "https://github.com/uris77/BBpicker.git",
   "author": {
     "name": "Roberto Guerra",
     "company": "Spantree LLC"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/urits77/bbpicker.git"
+    "url": "git://github.com/urits77/BBpicker.git"
   },
   "licenses": [
     {
