@@ -25,3 +25,11 @@ describe "Backpicker", ->
       @result = @container.append(@view.render().el)
     Then ->
       expect(@container.children()[0].id).not.toBe('')
+
+  describe "callback is executed", ->
+    Given ->
+      spyOn(@callback, 'apply')
+    When ->
+      Backpicker.execute "bbpicker:success", @callback, @, ["An InkBlob"]
+    Then ->
+      expect(@callback.apply).toHaveBeenCalled()
