@@ -1,1 +1,1 @@
-A Handelbar Template
+Drag Image Here!
