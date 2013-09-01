@@ -41,5 +41,29 @@ var view = Backpicker.show(callback, context, {className: 'someCssClass'});
 * npm
 * gruntjs
 
+# Development
+1. Set up the dev environment after checking out the code:
+```bash
+$ npm install
+```
+
+2. The code is contained inside the __src__ dir, and the specs inside __spec__ dir.
+
+3. Run the specs:
+```bash
+$ grunt spec
+```
+The specs are run with __Testem__ and uses __Jasmine__.
+
+4. Clean compiled assets:
+```bash
+$ grunt clean
+```
+
+# To Do
+Test the filepicker events. Currently I don't know how to simulate drag and drop or fake an event that will trigger
+__filePicker.makeDropPanel()__. Any help would be greatly appreciated.
+
+
 ## License
 [GPLv3](http://www.gnu.org/licenses/gpl-3.0.html)
