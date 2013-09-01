@@ -25,7 +25,7 @@
     "grunt-contrib-coffee": "~0.7.0",
     "grunt-contrib-handlebars": "~0.5.10",
     "grunt-contrib-concat": "~0.3.0",
-    "grunt-watch-nospawn": "0.0.3",
-    "grunt-contrib-uglify": "~0.2.2"
+    "grunt-contrib-uglify": "~0.2.2",
+    "grunt-contrib-watch": "~0.5.3"
   }
 }

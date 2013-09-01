@@ -9,7 +9,7 @@ module.exports = function(grunt) {
         "grunt-contrib-coffee",
         "grunt-contrib-handlebars",
         "grunt-contrib-concat",
-        "grunt-watch-nospawn",
+        "grunt-contrib-watch",
         "grunt-contrib-uglify"
     ].forEach(grunt.loadNpmTasks);
 
