@@ -4,13 +4,11 @@ A small Marionettejs component for uploading images with filepicker.
 # Usage
 1. You need to have an account and api key from [Inkfilepicker](http://inkfilepicker.com) in order to use this utility.
 2. Import the inkfilepicker js library as stated in their [docs](https://developers.inkfilepicker.com/docs/web/).
-4. Set the API Key that was assigned to you:
-
+4. Set the API Key that was assigned to you.
 ```javascript
 filepicker.setKey("AN_API_KEY");
 ```
-5. Start the BBPicker Application:
-
+5. Start the BBPicker Application.
 ```javascript
 Backpicker.start();
 ```
