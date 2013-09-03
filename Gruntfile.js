@@ -17,7 +17,7 @@ module.exports = function(grunt) {
 
         tmp: '.tmp/',
         dist: 'dist/',
-        projectName: 'projectName',
+        projectName: 'bbpicker',
 
         testem: {
             environment: {

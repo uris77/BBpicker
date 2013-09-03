@@ -1,7 +1,7 @@
 @Backpicker.module "Backpicker.Views", (Views, App, Backbone, Marionette, $, _) ->
   class Views.Filepicker extends Marionette.ItemView
     template: JST['templates/placeholder.hb']
-    id: Math.random(32).toString(36)
+    id: Math.ceil(_.random(10, 1009)).toString(36)
 
     initialize: (callback, context, options={}) ->
       @_setClassName(options.className)
@@ -22,7 +22,7 @@
         $("##{@id}").html('')
         $("##{@id}").append @logoImg(@_img)
 
-      filepicker.makeDropPane($("##{@id}")[0],
+      filepicker.makeDropPane($("##{@id}"),
         multiple: false,
         dragEnter: =>
           $("##{@id}").html("Drop to upload").css(
