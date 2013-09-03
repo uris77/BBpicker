@@ -64,7 +64,7 @@ $ grunt clean
 ```bash
 $ grunt build
 ```
-Build files will be generated in __/build__ directory. It will have both a minified version and a development version.
+Build files will be generated in __/dist__ directory. It will have both a minified version and a development version.
 
 # To Do
 Test the filepicker events. Currently I don't know how to simulate drag and drop or fake an event that will trigger
