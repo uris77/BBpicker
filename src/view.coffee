@@ -13,6 +13,7 @@
     _setClassName: (className) ->
       if className
         @className = className
+        @$el.addClass @className
 
     logoImg: (img) ->
       "<img src=#{img} alt='Image'/>"

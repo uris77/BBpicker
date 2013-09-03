@@ -4,7 +4,7 @@ describe "Backpicker", ->
   beforeEach ->
     @container = affix '#placeholder'
     @callback = -> console.log "Call back called"
-    @view = Backpicker.show({className: 'cssClassName'})
+    @view = Backpicker.show(@callback, @, {className: 'cssClassName'})
 
   describe "renders message in placeholder", ->
     When ->
