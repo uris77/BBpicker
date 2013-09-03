@@ -42,10 +42,10 @@
           $("##{@id}").text("Done, see result below")
           $("##{@id}").html('')
           if @_args
-            @_args.push InkBlobs[0]
+            @_args['fileBlob'] = InkBlobs[0]
           else
-            @_args = [InkBlobs[0]]
-          App.execute "bbpicker:success", callback, context, @_args
+            @_args['fileBlob'] = [InkBlobs[0]]
+          App.execute "bbpicker:success", @_callback, @_context, [@_args]
 
         onError: (type, message) ->
           console.error "#{type} ", message
