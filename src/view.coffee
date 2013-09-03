@@ -16,7 +16,11 @@
         @$el.addClass @className
 
     logoImg: (img) ->
-      "<img src=#{img} alt='Image'/>"
+      "<img src=#{img} alt='Image' width='50%' height='50%'/>"
+
+    _showImg: (img) ->
+      $("##{@id}").html('')
+      $("##{@id}").append @logoImg(img)
 
     onShow: ->
       if @_img
@@ -45,6 +49,7 @@
             @_args['fileBlob'] = InkBlobs[0]
           else
             @_args['fileBlob'] = [InkBlobs[0]]
+          @_showImg(InkBlobs[0].url)
           App.execute "bbpicker:success", @_callback, @_context, [@_args]
 
         onError: (type, message) ->
