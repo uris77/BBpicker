@@ -35,7 +35,8 @@ module.exports = function(grunt) {
                 options: {
                     parallel: 8,
                     launch_in_ci: ['PhantomJS'],
-                    launch_in_dev: ['PhantomJS', 'Chrome']
+                    launch_in_dev: ['PhantomJS', 'Chrome'],
+                    framework: 'jasmine'
                 }
             }
         },
