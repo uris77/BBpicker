@@ -9,3 +9,5 @@
 .tmp
 
 .sass-cache
+
+*.swp

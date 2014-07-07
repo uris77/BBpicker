@@ -13,6 +13,8 @@
         @_width = options.width
       if options.height
         @_height = options.height
+      if options.maxSize
+        @_maxSize = options.maxSize
 
     _setClassName: (className) ->
       if className
@@ -20,7 +22,7 @@
         @$el.addClass @className
 
     logoImg: (img) ->
-      "<img src=#{img} alt='Image' width='50%' height='50%'/>"
+      "<img src=#{img} alt='Image' />"
 
     _showImg: (img) ->
       $("##{@id}").html('')
@@ -53,6 +55,7 @@
 
       onError: (type, message) ->
         console.error "#{type} ", message
+        App.vent.trigger "bbpicker:error", {type: type, message: message}
 
       onProgress: (percentage) =>
         $("##{@id}").html('')
@@ -63,13 +66,13 @@
       if @_img
         $("##{@id}").html('')
         $("##{@id}").append @logoImg(@_img)
-
       options = @_filepickerOptions()
       if @_width
         options.width = @_width
       if @_height
         options.height = @_height
-
+      if @_maxSize
+        options.maxSize = @_maxSize
       filepicker.makeDropPane($("##{@id}"), options)
 
   Views.getView = (callback, context, options) ->
