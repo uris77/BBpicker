@@ -9,6 +9,10 @@
       @_callback = callback
       @_context = context
       @_args = options.args
+      if options.width
+        @_width = options.width
+      if options.height
+        @_height = options.height
 
     _setClassName: (className) ->
       if className
@@ -22,43 +26,51 @@
       $("##{@id}").html('')
       $("##{@id}").append @logoImg(img)
 
+    _filepickerOptions: =>
+      multiple: false,
+      dragEnter: =>
+        $("##{@id}").html("Drop to upload").css(
+          'backgroundColor': "#E0E0E0"
+          'border': "1px solid #000"
+          'height': "100px"
+        )
+      dragLeave: =>
+        $("##{@id}").html("Drop files here").css(
+          'backgroundColor': "#F6F6F6"
+          'border': "1px dashed #666"
+          'height': "100px"
+        )
+
+      onSuccess: (InkBlobs) =>
+        $("##{@id}").text("Done, see result below")
+        $("##{@id}").html('')
+        if @_args
+          @_args['fileBlob'] = InkBlobs[0]
+        else
+          @_args['fileBlob'] = [InkBlobs[0]]
+        @_showImg(InkBlobs[0].url)
+        App.execute "bbpicker:success", @_callback, @_context, [@_args]
+
+      onError: (type, message) ->
+        console.error "#{type} ", message
+
+      onProgress: (percentage) =>
+        $("##{@id}").html('')
+        console.info "Uploading #{percentage}%"
+        $("##{@id}").text("Uploading (#{percentage}%)")
+
     onShow: ->
       if @_img
         $("##{@id}").html('')
         $("##{@id}").append @logoImg(@_img)
 
-      filepicker.makeDropPane($("##{@id}"),
-        multiple: false,
-        dragEnter: =>
-          $("##{@id}").html("Drop to upload").css(
-            'backgroundColor': "#E0E0E0"
-            'border': "1px solid #000"
-            'height': "100px"
-          )
-        dragLeave: =>
-          $("##{@id}").html("Drop files here").css(
-            'backgroundColor': "#F6F6F6"
-            'border': "1px dashed #666"
-            'height': "100px"
-          )
+      options = @_filepickerOptions()
+      if @_width
+        options.width = @_width
+      if @_height
+        options.height = @_height
 
-        onSuccess: (InkBlobs) =>
-          $("##{@id}").text("Done, see result below")
-          $("##{@id}").html('')
-          if @_args
-            @_args['fileBlob'] = InkBlobs[0]
-          else
-            @_args['fileBlob'] = [InkBlobs[0]]
-          @_showImg(InkBlobs[0].url)
-          App.execute "bbpicker:success", @_callback, @_context, [@_args]
+      filepicker.makeDropPane($("##{@id}"), options)
 
-        onError: (type, message) ->
-          console.error "#{type} ", message
-
-        onProgress: (percentage) =>
-          $("##{@id}").html('')
-          console.info "Uploading #{percentage}%"
-          $("##{@id}").text("Uploading (#{percentage}%)")
-      )
-
-  Views.getView = (callback, context, options)-> new Views.Filepicker(callback, context, options)
+  Views.getView = (callback, context, options) ->
+    new Views.Filepicker(callback, context, options)
